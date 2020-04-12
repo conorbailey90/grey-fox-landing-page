@@ -10,7 +10,7 @@
 html,
 body {
   height: 100vh;
-  cursor: none !important;
+  cursor: none;
 }
 
 .container {
@@ -39,7 +39,7 @@ img {
   height: 14px;
   border: 1px solid #8f8f8f;
   border-radius: 10px;
-  z-index: 9999;
+  z-index: 2;
 }
 
 .ball {
@@ -50,7 +50,7 @@ img {
   height: 12px;
   background: #ff0033;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .ball.off {
@@ -61,7 +61,7 @@ img {
   height: 12px;
   background: #ff0033;
   border-radius: 10px;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 #image-container {
@@ -105,7 +105,7 @@ img {
   height: 5px;
   border-radius: 50%;
   background-color: #ff0033;
-  z-index: 9999;
+  z-index: 2;
 }
 
 .gun-shot {
@@ -127,4 +127,28 @@ img {
   height: 100vh;
   background-color: white;
   z-index: 9999;
+}
+
+.weather {
+  position: absolute;
+  left: 10%;
+  top: 70%;
+  width: 20%;
+  text-align: center;
+  z-index: 9999;
+}
+
+.weather-search {
+  background: black;
+  border: none;
+  border-bottom: 1px solid #ff0033;
+  margin: 1rem;
+}
+
+.search {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  cursor: pointer;
+  margin: 1rem;
 }

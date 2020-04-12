@@ -1,7 +1,7 @@
 // Glitch section
 let bg = document.getElementById("image-container");
 let greyFox = document.querySelector(".grey-fox");
-let count = 13;
+let count = 18;
 
 for (let i = 0; i < count; i++) {
   let glitchBox = document.createElement("div");
@@ -85,7 +85,6 @@ const pointer = document.querySelector(".pointer");
 document.addEventListener("mousemove", e => {
   pointer.style.left = e.clientX + "px";
   pointer.style.top = e.clientY + "px";
-  document.body.style.cursor = "none";
 });
 
 // Gun Noise
@@ -109,3 +108,39 @@ document.addEventListener("click", () => {
     gunShot.classList.remove("active");
   }, 50);
 });
+
+// Weather
+const weatherLocation = document.querySelector(".location");
+const temperature = document.querySelector(".temperature");
+const status = document.querySelector(".status");
+const weatherSearch = document.querySelector(".weather-search");
+const search = document.querySelector(".search");
+
+search.addEventListener("click", getWeather);
+
+let apiKey = "6dafd285803162612ccd76ec335d85ce";
+let city = "Chelmsford";
+
+function getWeather() {
+  weatherSearch.value != ""
+    ? (city = weatherSearch.value)
+    : (city = "Chelmsford");
+
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city},uk&appid=${apiKey}`;
+  fetch(url)
+    .then(res => {
+      return res.json();
+    })
+    .then(data => {
+      console.log(data);
+      weatherLocation.innerText = data.name;
+      temperature.innerText = `${Math.floor(data.main.temp - 273.15)}°C`;
+      status.innerText = data.weather[0].description;
+      console.log(data.name);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+getWeather();
